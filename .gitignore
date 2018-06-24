@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+# Intellij
+.idea/
+*.iws
+*.iml
+
+#Maven
+log/
+target/
