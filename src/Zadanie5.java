@@ -9,6 +9,9 @@ public class Zadanie5 {
     private List<Integer> readNumers = new ArrayList<Integer>();
     private String filePath;
 
+    public Zadanie5() {
+    }
+
     public Zadanie5(String filePath) {
         this.filePath = filePath;
     }
@@ -29,7 +32,7 @@ public class Zadanie5 {
         int sum = 0;
 
         for (Integer number : readNumers) {
-            sum += number.intValue();
+            sum += number;
             System.out.println(sum);
         }
     }
