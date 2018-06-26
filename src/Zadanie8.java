@@ -2,7 +2,7 @@
 // implementacja szyfru Cezra z przesunięciem SHIFT
 
 public class Zadanie8 {
-    final int SHIFT = 3;
+    final int SHIFT = 3 ;
     final char SPACE = ' ';
 
     public String encryption(String input) {
