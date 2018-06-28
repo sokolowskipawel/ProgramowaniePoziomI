@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
@@ -53,9 +55,7 @@ public class EratosthenesSieve {
         EratosthenesSieve eratosthenesSieve = new EratosthenesSieve(25);
 
         eratosthenesSieve.eratosthenesSieveCalculate();
-
         PrintWriter file = new PrintWriter("prime-numbers.txt");
-
         file.print(eratosthenesSieve.toString());
         file.close();
     }
