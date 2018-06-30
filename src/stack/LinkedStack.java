@@ -47,11 +47,6 @@ public class LinkedStack<T> {
         return size == 0;
     }
 
-    @Override
-    public String toString() {
-        return top.valu.toString();
-    }
-
     private class StackElement {
         T valu;
         StackElement previousElement;

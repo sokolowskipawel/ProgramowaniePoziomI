@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
-public class Stack<T> {
+public class ArrayStack<T> {
     private List<T> stack;
     private T top;
     private Integer size;
     private Integer currentSize;
 
-    public Stack(int size) {
+    public ArrayStack(int size) {
         stack = new ArrayList<>();
         this.size = size;
         currentSize = 0;
@@ -21,7 +21,6 @@ public class Stack<T> {
         if (size != stack.size()) {
             stack.add(element);
             top = element;
-            System.out.println("push " + top);
             currentSize++;
         } else {
             System.out.println("Nie można dodać elementu. Stos jest już zapełniony!");
