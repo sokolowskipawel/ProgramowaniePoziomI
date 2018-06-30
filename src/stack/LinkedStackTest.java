@@ -3,14 +3,14 @@ package stack;
 public class LinkedStackTest {
     public static void main(String[] args) {
 
-        LinkedStack linkedStack = new LinkedStack();
+        LinkedStack<String> linkedStack = new LinkedStack<String>();
 
         System.out.println(linkedStack.isEmpty());
-        linkedStack.push(10);
+        linkedStack.push("Java");
         System.out.println(linkedStack.peek());
-        linkedStack.push(20);
+        linkedStack.push("Program");
         System.out.println(linkedStack.peek());
-        linkedStack.push(30);
+        linkedStack.push("koniec");
         System.out.println(linkedStack.peek());
         System.out.println(linkedStack.isEmpty());
         linkedStack.pop();
