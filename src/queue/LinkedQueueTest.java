@@ -10,5 +10,17 @@ public class LinkedQueueTest {
         linkedQueue.push(2);
         linkedQueue.push(3);
         System.out.println(linkedQueue.front());
+        linkedQueue.pop();
+        System.out.println(linkedQueue.front());
+        linkedQueue.pop();
+        System.out.println(linkedQueue.front());
+        linkedQueue.pop();
+        linkedQueue.push(4);
+        System.out.println(linkedQueue.front());
+        linkedQueue.push(5);
+        System.out.println(linkedQueue.front());
+        System.out.println(linkedQueue.isEmpty());
+        linkedQueue.pop();
+        System.out.println(linkedQueue.front());
     }
 }

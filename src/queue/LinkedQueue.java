@@ -22,7 +22,7 @@ public class LinkedQueue<T> {
         if (size == 0) {
             first = newLast;
             last = newLast;
-        }else {
+        } else {
             last.nextElement = newLast;
             last = newLast;
         }
@@ -52,23 +52,6 @@ public class LinkedQueue<T> {
         }
     }
 
-    /*  public T pop() {
-
-          if (size > 0) {
-              LinkedStack.StackElement popElement = top;
-              size--;
-              if (size == 0) {
-                  top = null;
-                  return popElement.valu;
-              }
-              top = top.previousElement;
-              return popElement.valu;
-          } else {
-              throw new EmptyStackException();
-          }
-
-      }
-  */
     public boolean isEmpty() {
         return size == 0;
     }
