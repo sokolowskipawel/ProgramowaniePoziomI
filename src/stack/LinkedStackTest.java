@@ -3,7 +3,7 @@ package stack;
 public class LinkedStackTest {
     public static void main(String[] args) {
 
-        LinkedStack<String> linkedStack = new LinkedStack<String>();
+        Stack<String> linkedStack = new LinkedStack<String>();
 
         System.out.println(linkedStack.isEmpty());
         linkedStack.push("Java");
@@ -19,5 +19,16 @@ public class LinkedStackTest {
         System.out.println(linkedStack.peek());
         linkedStack.pop();
         System.out.println(linkedStack.isEmpty());
+
+        Stack<Integer> stack = new ArrayStack<>(5);
+        System.out.println("Is empty?: " + stack.isEmpty());
+        stack.push(1);
+
+        stack.push(2);
+
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(5);
     }
 }

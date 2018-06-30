@@ -2,7 +2,7 @@ package stack;
 
 import java.util.EmptyStackException;
 
-public class LinkedStack<T> {
+public class LinkedStack<T> implements Stack<T>{
 
     private StackElement top;
     private int size;

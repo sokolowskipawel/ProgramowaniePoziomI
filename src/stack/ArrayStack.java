@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
-public class ArrayStack<T> {
+public class ArrayStack<T> implements Stack<T>{
     private List<T> stack;
     private T top;
     private Integer size;
