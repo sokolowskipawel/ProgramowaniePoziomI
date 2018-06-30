@@ -56,6 +56,22 @@ public class LinkedQueue<T> {
         return size == 0;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder outBuild = new StringBuilder();
+
+        if (size == 0) {
+            return "{}";
+        }
+        QueueElement printElement = first;
+        System.out.print("{");
+        for (int i = 0; i < size - 1; i++) {
+            System.out.print(printElement.valu + ", ");
+            printElement = printElement.nextElement;
+        }
+        return printElement.valu + "}";
+    }
+
     private class QueueElement {
         T valu;
         QueueElement nextElement;
