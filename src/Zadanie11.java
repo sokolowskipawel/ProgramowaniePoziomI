@@ -1,4 +1,4 @@
-// wyszukiwanie najdłuższego wspólnego ciągu w dwóch ciągach znaków
+// wyszukiwanie najdłuższego wspólnego ciągu w dwóch ciągach znaków do poprawy
 public class Zadanie11 {
 
     private String a;
