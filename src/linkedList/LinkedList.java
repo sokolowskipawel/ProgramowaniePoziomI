@@ -32,9 +32,9 @@ public class LinkedList<T> {
         size++;
     }
 
-    //element wstawiamy przed obecny element tylko do niepustej listy
+    //element wstawiamy przed obecny element
     public void add(int index, T valu) {
-        if (isEmpty() || index >= size) {
+        if ((isEmpty() || index < 0 || index >= size)) {
             throw new EmptyStackException();
         }
 
@@ -102,7 +102,7 @@ public class LinkedList<T> {
 
     private String toString(String outText, ListElement currentElement) {
         if (currentElement.nextElement == null) {
-         //   System.out.println(currentElement.value.toString());
+            //   System.out.println(currentElement.value.toString());
             return currentElement.value.toString() + ", ";
         } else {
             System.out.println(currentElement.value.toString());
