@@ -11,26 +11,26 @@ public class LinkedQueue<T> {
     private int size;
 
     public LinkedQueue() {
-        size = 0;
-        first = null;
-        last = null;
+        this.size = 0;
+        this.first = null;
+        this.last = null;
     }
 
     public void push(T value) {
         QueueElement newLast = new QueueElement(value);
 
-        if (size == 0) {
+        if (isEmpty()) {
             first = newLast;
             last = newLast;
         } else {
             last.nextElement = newLast;
-            last = newLast;
+            last = last.nextElement;
         }
         size++;
     }
 
     public T front() {
-        if (size > 0) {
+        if (!isEmpty()) {
             return first.valu;
         } else {
             throw new EmptyStackException();
@@ -38,7 +38,17 @@ public class LinkedQueue<T> {
     }
 
     public T pop() {
-        if (size > 0) {
+        if (isEmpty()){
+            throw new EmptyStackException();
+        }
+        if (size == 1){
+            last = null;
+        }
+        T temp = first.valu;
+        first = first.nextElement;
+        size --;
+        return temp;
+  /*      if (size > 0) {
             QueueElement popElement = first;
             size--;
             if (size == 0) {
@@ -49,7 +59,7 @@ public class LinkedQueue<T> {
             return popElement.valu;
         } else {
             throw new EmptyStackException();
-        }
+        }  */
     }
 
     public boolean isEmpty() {
@@ -58,6 +68,7 @@ public class LinkedQueue<T> {
 
     @Override
     public String toString() {
+
         StringBuilder outBuild = new StringBuilder();
 
         if (size == 0) {
@@ -67,6 +78,8 @@ public class LinkedQueue<T> {
         System.out.print("{");
         for (int i = 0; i < size - 1; i++) {
             System.out.print(printElement.valu + ", ");
+         //   String = (S)
+        //    outBuild.append()
             printElement = printElement.nextElement;
         }
         return printElement.valu + "}";
@@ -80,6 +93,14 @@ public class LinkedQueue<T> {
         public QueueElement(T valu) {
             this.valu = valu;
             this.nextElement = null;
+        }
+
+        @Override
+        public String toString() {
+            if (nextElement == null){
+                return valu.toString();
+            }
+            return toString();
         }
     }
 }
