@@ -54,8 +54,23 @@ public class LinkedList<T> {
         size++;
     }
 
+    public void remove(int index) {
+        ListElement removableElement = getElement(index);
+        if (index == 0) {
+            head = head.nextElement;
+            head.proviousElement = null;
+        } else if (index == size - 1) {
+            tail = tail.proviousElement;
+            tail.nextElement = null;
+        } else {
+            removableElement.proviousElement.nextElement = removableElement.nextElement;
+            removableElement.nextElement.proviousElement = removableElement.proviousElement;
+        }
+        size--;
+    }
+
     private ListElement getElement(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index > size - 1) {
             throw new EmptyStackException();
         }
         ListElement currentElement = head;
@@ -70,12 +85,29 @@ public class LinkedList<T> {
     }
 
     public int getSize() {
-
         return size;
     }
 
     public boolean isEmpty() {
         return getSize() == 0;
+    }
+
+    @Override
+    public String toString() {
+
+        ListElement currentElement = head;
+
+        return toString("", currentElement);
+    }
+
+    private String toString(String outText, ListElement currentElement) {
+        if (currentElement.nextElement == null) {
+         //   System.out.println(currentElement.value.toString());
+            return currentElement.value.toString() + ", ";
+        } else {
+            System.out.println(currentElement.value.toString());
+            return outText + toString(outText, currentElement.nextElement);
+        }
     }
 
     public T getHead() {
