@@ -54,9 +54,11 @@ public class LinkedList<T> {
         size++;
     }
 
-    public void remove(int index) {
+    public T remove(int index) {
         ListElement removableElement = getElement(index);
-        if (index == 0) {
+        if (size == 1) {
+            head = tail = null;
+        } else if (index == 0) {
             head = head.nextElement;
             head.proviousElement = null;
         } else if (index == size - 1) {
@@ -67,6 +69,7 @@ public class LinkedList<T> {
             removableElement.nextElement.proviousElement = removableElement.proviousElement;
         }
         size--;
+        return removableElement.value;
     }
 
     private ListElement getElement(int index) {

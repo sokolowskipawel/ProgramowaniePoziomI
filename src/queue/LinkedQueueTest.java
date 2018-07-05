@@ -3,7 +3,7 @@ package queue;
 public class LinkedQueueTest {
 
     public static void main(String[] args) {
-        LinkedQueue<Integer> linkedQueue = new LinkedQueue<>();
+        LinkedQueue<Integer> linkedQueue = new LinkedQueue<Integer>();
 
         System.out.println(linkedQueue.isEmpty());
         System.out.println(linkedQueue);

@@ -6,8 +6,8 @@ import java.util.EmptyStackException;
 
 public class LinkedQueue<T> {
 
-    private QueueElement first;
-    private QueueElement last;
+    private QueueElement<T> first;
+    private QueueElement<T> last;
     private int size;
 
     public LinkedQueue() {
@@ -18,35 +18,35 @@ public class LinkedQueue<T> {
 
     public void push(T value) {
         QueueElement newLast = new QueueElement(value);
-
+        System.out.println("Nowy element:" + newLast.getValue());
         if (isEmpty()) {
             first = newLast;
             last = newLast;
         } else {
-            last.nextElement = newLast;
-            last = last.nextElement;
+            last.setNextElement(newLast);
+            last = last.getNextElement();
         }
         size++;
     }
 
     public T front() {
         if (!isEmpty()) {
-            return first.valu;
+            return first.getValue();
         } else {
             throw new EmptyStackException();
         }
     }
 
     public T pop() {
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new EmptyStackException();
         }
-        if (size == 1){
+        if (size == 1) {
             last = null;
         }
-        T temp = first.valu;
-        first = first.nextElement;
-        size --;
+        T temp = first.getValue();
+        first = first.getNextElement();
+        size--;
         return temp;
   /*      if (size > 0) {
             QueueElement popElement = first;
@@ -77,30 +77,11 @@ public class LinkedQueue<T> {
         QueueElement printElement = first;
         System.out.print("{");
         for (int i = 0; i < size - 1; i++) {
-            System.out.print(printElement.valu + ", ");
-         //   String = (S)
-        //    outBuild.append()
-            printElement = printElement.nextElement;
+            System.out.print(printElement.getValue() + ", ");
+            //   String = (S)
+            //    outBuild.append()
+            printElement = printElement.getNextElement();
         }
-        return printElement.valu + "}";
-    }
-
-    private class QueueElement {
-        T valu;
-        QueueElement nextElement;
-
-
-        public QueueElement(T valu) {
-            this.valu = valu;
-            this.nextElement = null;
-        }
-
-        @Override
-        public String toString() {
-            if (nextElement == null){
-                return valu.toString();
-            }
-            return toString();
-        }
+        return printElement.getValue() + "}";
     }
 }
