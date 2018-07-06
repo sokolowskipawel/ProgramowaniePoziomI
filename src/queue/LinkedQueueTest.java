@@ -23,5 +23,20 @@ public class LinkedQueueTest {
         System.out.println("Gotowy do pobrania: " + linkedQueue.front());
         System.out.println("Pobrałem: " + linkedQueue.pop());
         System.out.println("Gotowy do pobrania: " + linkedQueue.front());
+
+        PriorityQueue<String> priorityQueue = new PriorityQueue<String>();
+
+        System.out.println("Kolejka priorytetowa");
+        System.out.println(priorityQueue.isEmpty());
+        System.out.println(priorityQueue);
+        priorityQueue.push("1",10);
+        System.out.println(priorityQueue.isEmpty());
+        System.out.println(priorityQueue);
+      //  System.out.println("do pobrania " + priorityQueue.front());
+        priorityQueue.push("2",10);
+        priorityQueue.push("3",10);
+        priorityQueue.push("4",10);
+//        System.out.println(priorityQueue);
+      //  System.out.println("do pobrania " + priorityQueue.front());
     }
 }

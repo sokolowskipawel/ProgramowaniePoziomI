@@ -3,7 +3,7 @@ package queue;
 public class QueueElement<T> {
 
     private T value;
-    private QueueElement nextElement;
+    private QueueElement<T> nextElement;
 
 
     public QueueElement(T value) {

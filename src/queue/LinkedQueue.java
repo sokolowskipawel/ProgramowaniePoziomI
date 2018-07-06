@@ -6,9 +6,9 @@ import java.util.EmptyStackException;
 
 public class LinkedQueue<T> {
 
-    private QueueElement<T> first;
-    private QueueElement<T> last;
-    private int size;
+    protected QueueElement<T> first;
+    protected QueueElement<T> last;
+    protected int size;
 
     public LinkedQueue() {
         this.size = 0;
@@ -18,7 +18,7 @@ public class LinkedQueue<T> {
 
     public void push(T value) {
         QueueElement newLast = new QueueElement(value);
-        System.out.println("Nowy element:" + newLast.getValue());
+
         if (isEmpty()) {
             first = newLast;
             last = newLast;
