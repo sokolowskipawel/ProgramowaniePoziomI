@@ -10,7 +10,7 @@ public class LinkedQueueTest {
         linkedQueue.push(1);
         linkedQueue.push(2);
         linkedQueue.push(3);
-        System.out.println(linkedQueue);
+
         System.out.println("Gotowy do pobrania: " + linkedQueue.front());
         System.out.println("Pobrałem: " + linkedQueue.pop());
         System.out.println("Gotowy do pobrania: " + linkedQueue.front());
@@ -31,12 +31,18 @@ public class LinkedQueueTest {
         System.out.println(priorityQueue);
         priorityQueue.push("1",10);
         System.out.println(priorityQueue.isEmpty());
+        System.out.println(priorityQueue.front());
+      //  System.out.println("do pobrania " + priorityQueue.front());
+//        priorityQueue.push("2",20);
+//        priorityQueue.push("3",30);
+//        priorityQueue.push("4",10);
+        priorityQueue.push("5",50);
         System.out.println(priorityQueue);
-      //  System.out.println("do pobrania " + priorityQueue.front());
-        priorityQueue.push("2",10);
-        priorityQueue.push("3",10);
-        priorityQueue.push("4",10);
-//        System.out.println(priorityQueue);
-      //  System.out.println("do pobrania " + priorityQueue.front());
+        System.out.println("do pobrania " + priorityQueue.front());
+        System.out.println(priorityQueue.pop());
+        System.out.println(priorityQueue);
+        System.out.println("do pobrania " + priorityQueue.front());
+        System.out.println(priorityQueue.pop());
+        System.out.println(priorityQueue.isEmpty());
     }
 }

@@ -6,8 +6,8 @@ import java.util.EmptyStackException;
 
 public class LinkedQueue<T> {
 
-    protected QueueElement<T> first;
-    protected QueueElement<T> last;
+    private QueueElement<T> first;
+    private QueueElement<T> last;
     protected int size;
 
     public LinkedQueue() {
