@@ -4,11 +4,12 @@ public class PriorityQueueElement<T> {
 
     private int priority;
     private T value;
-    private PriorityQueueElement nextElement;
+    private PriorityQueueElement<T> nextElement;
 
     public PriorityQueueElement(T value, int priority) {
         this.value = value;
         this.priority = priority;
+        this.nextElement = null;
     }
 
     public int getPriority() {
@@ -19,7 +20,7 @@ public class PriorityQueueElement<T> {
         return value;
     }
 
-    public PriorityQueueElement getNextElement() {
+    public PriorityQueueElement<T> getNextElement() {
         return nextElement;
     }
 
@@ -29,5 +30,12 @@ public class PriorityQueueElement<T> {
 
     public void setNextElement(PriorityQueueElement nextElement) {
         this.nextElement = nextElement;
+    }
+
+    @Override
+    public String toString() {
+//      return getNextElement() != null ? getValue() + " " + getNextElement().toString() : getValue().toString();
+        // to jest to samoa
+        return getNextElement() != null ? getValue() + " " + getNextElement() : getValue().toString();
     }
 }

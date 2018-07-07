@@ -8,9 +8,9 @@ public class PriorityQueue<T> {
     private PriorityQueueElement<T> last;
     protected int size;
 
-    public PriorityQueue(){
-            this.first = this.last = null;
-            size = 0;
+    public PriorityQueue() {
+        this.first = this.last = null;
+        size = 0;
     }
 
     public void push(T value, int priority) {
@@ -32,13 +32,14 @@ public class PriorityQueue<T> {
                 }
                 last.setNextElement(newElement);
                 last = newElement;
+                last.setNextElement(null);
             }
         } else {
             first.setNextElement(newElement);
             last = newElement;
         }
         size++;
-        System.out.println(size);
+        //  System.out.println(size);
     }
 
     public T front() {
@@ -66,22 +67,27 @@ public class PriorityQueue<T> {
         return size == 0;
     }
 
-    @Override
+//     public String toString() {
+//  //        return "{" + print(first) + "}";
+//     StringBuilder outBuild = new StringBuilder();
+//
+//        if (size == 0) {
+//            return "{}";
+//        }
+//        PriorityQueueElement printElement = first;
+//        System.out.print("{");
+//        for (int i = 0; i < size - 1; i++) {
+//            System.out.print(printElement.getValue() + ", ");
+//            //   String = (S)
+//            //    outBuild.append()
+//            printElement = printElement.getNextElement();
+//        }
+//        return printElement.getValue() + "}";
+//      }
+
     public String toString() {
 
-        StringBuilder outBuild = new StringBuilder();
+        return first.toString();
 
-        if (size == 0) {
-            return "{}";
-        }
-        PriorityQueueElement printElement = first;
-        System.out.print("{");
-        for (int i = 0; i < size - 1; i++) {
-            System.out.print(printElement.getValue() + ", ");
-            //   String = (S)
-            //    outBuild.append()
-            printElement = printElement.getNextElement();
-        }
-        return printElement.getValue() + "}";
     }
 }
