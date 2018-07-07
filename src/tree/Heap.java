@@ -2,12 +2,12 @@ package tree;
 
 import java.util.Arrays;
 
-public class Mound {
+public class Heap {
 
     private Integer[] tree;
     private int lastIndex;
 
-    public Mound(int size) {
+    public Heap(int size) {
         this.tree = new Integer[size];
         this.lastIndex = 0;
     }
