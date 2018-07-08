@@ -12,7 +12,7 @@ public class Heap {
         this.lastIndex = 0;
     }
 
-    void add(Integer value) {
+    public void add(Integer value) {
         tree[lastIndex] = value;
         int index = lastIndex++; //najpierw przypisze lastIndex a następnie zwiększy LastIndex
         while (index > 0 && tree[getParentIndex(index)] < tree[index]) {
@@ -22,7 +22,27 @@ public class Heap {
         }
     }
 
-    public int remove() {
+    public int remove(){
+        if(!hasNodes()){
+            throw new IndexOutOfBoundsException();
+        }
+    int elementToRemove = tree[0];
+        int currenIndex = 0;
+        int greatChildIndex = getGreaterChildIndex(0);
+        int lastValue = tree[--lastIndex];
+
+        while (greatChildIndex < lastIndex){
+            if (tree[greatChildIndex] > lastValue){
+                tree[currenIndex] = tree[greatChildIndex];
+            }
+            currenIndex = greatChildIndex;
+            greatChildIndex = getGreaterChildIndex(currenIndex);
+        }
+        tree[currenIndex] = lastValue;
+        return elementToRemove;
+    }
+
+    public int remove2() {
         int root;
         if (tree[0] == null) {
             throw new IndexOutOfBoundsException();
@@ -34,6 +54,7 @@ public class Heap {
 
             int index = 0;
             while (isLeftChild(index)) {
+
                 int biggerChildIndex = getLeftChildIndex(index);
 
                 if (isRightChild(index)) {
@@ -54,6 +75,15 @@ public class Heap {
 
         return root;
     }
+public int getGreaterChildIndex(int index){
+        if(isRightChild(index)){
+            return  getLeftChild(index) > getRightChild(index) ? getLeftChildIndex(index) : getRightChildIndex(index);
+        } else if (isLeftChild(index)){
+            return getLeftChildIndex(index);
+        } else {
+            return lastIndex + 1;
+        }
+}
 
     Integer getLeftChild(int index) {
         return tree[getLeftChildIndex(index)];
@@ -99,8 +129,13 @@ public class Heap {
         return !isLeftChild(index);
     }
 
+
+    public boolean hasNodes() {
+        return lastIndex > 0;
+    }
+
     @Override
     public String toString() {
-        return Arrays.toString(tree);
+        return Arrays.toString(Arrays.copyOfRange(tree, 0, lastIndex));
     }
 }
