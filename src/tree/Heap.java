@@ -30,13 +30,14 @@ public class Heap {
         int currenIndex = 0;
         int greatChildIndex = getGreaterChildIndex(0);
         int lastValue = tree[--lastIndex];
-        System.out.println("last " + lastValue);
+     //   System.out.println("last " + lastValue);
         while (greatChildIndex < lastIndex){
             if (tree[greatChildIndex] > lastValue){
                 tree[currenIndex] = tree[greatChildIndex];
             }
             currenIndex = greatChildIndex;
             greatChildIndex = getGreaterChildIndex(currenIndex);
+  //          tree[currenIndex] = lastValue;
         }
         tree[currenIndex] = lastValue;
         return elementToRemove;
