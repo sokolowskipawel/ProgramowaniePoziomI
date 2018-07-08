@@ -13,11 +13,11 @@ public class HeapSort {
 
 //        for (int i = 0; i < tab.length; i++) {
 //            tree.add(tab[i]);
-//        }
+//        } //poniżej to samo w wyrażeniu lambda
         Arrays.stream(tab).forEach(heap::add);
         int[] sortedTab = new int[tab.length];
         for (int i = sortedTab.length - 1; i >= 0; i--) {
-            sortedTab[i] = heap.remove2();
+            sortedTab[i] = heap.remove();
         }
         return sortedTab;
     }

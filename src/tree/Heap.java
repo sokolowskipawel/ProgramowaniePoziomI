@@ -22,22 +22,19 @@ public class Heap {
         }
     }
 
-    public int remove(){
-        if(!hasNodes()){
+    public int remove() {
+        if (!hasNodes()) {
             throw new IndexOutOfBoundsException();
         }
-    int elementToRemove = tree[0];
+        int elementToRemove = tree[0];
         int currenIndex = 0;
         int greatChildIndex = getGreaterChildIndex(0);
         int lastValue = tree[--lastIndex];
-     //   System.out.println("last " + lastValue);
-        while (greatChildIndex < lastIndex){
-            if (tree[greatChildIndex] > lastValue){
-                tree[currenIndex] = tree[greatChildIndex];
-            }
+
+        while (greatChildIndex < lastIndex && tree[greatChildIndex] > lastValue) {
+            tree[currenIndex] = tree[greatChildIndex];
             currenIndex = greatChildIndex;
             greatChildIndex = getGreaterChildIndex(currenIndex);
-  //          tree[currenIndex] = lastValue;
         }
         tree[currenIndex] = lastValue;
         return elementToRemove;
@@ -76,15 +73,16 @@ public class Heap {
 
         return root;
     }
-public int getGreaterChildIndex(int index){
-        if(isRightChild(index)){
-            return  getLeftChild(index) > getRightChild(index) ? getLeftChildIndex(index) : getRightChildIndex(index);
-        } else if (isLeftChild(index)){
+
+    public int getGreaterChildIndex(int index) {
+        if (isRightChild(index)) {
+            return getLeftChild(index) > getRightChild(index) ? getLeftChildIndex(index) : getRightChildIndex(index);
+        } else if (isLeftChild(index)) {
             return getLeftChildIndex(index);
         } else {
             return lastIndex + 1;
         }
-}
+    }
 
     Integer getLeftChild(int index) {
         return tree[getLeftChildIndex(index)];
