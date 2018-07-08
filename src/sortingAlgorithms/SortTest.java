@@ -12,8 +12,10 @@ public class SortTest {
         //    tab = bubbleSort.sort();
         // HeapSort. heapSort = new HeapSort();
 
-        int[] sorted = HeapSort.sort(tab);
+     //   int[] sorted = HeapSort.sort(tab);
 
-        System.out.println(Arrays.toString(Arrays.copyOfRange(sorted, 0, sorted.length)));
+        int[] quicksorted = Sorter.quikSort(tab);
+       // System.out.println(Arrays.toString(Arrays.copyOfRange(sorted, 0, sorted.length)));
+        System.out.println(Arrays.toString(Arrays.copyOfRange(quicksorted, 0, quicksorted.length)));
     }
 }
