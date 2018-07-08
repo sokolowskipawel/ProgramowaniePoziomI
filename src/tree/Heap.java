@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Heap {
 
     private Integer[] tree;
-    private int lastIndex;
+    private int lastIndex; // index gdzie wstawiamy nowy element
 
     public Heap(int size) {
         this.tree = new Integer[size];
@@ -14,12 +14,57 @@ public class Heap {
 
     void add(Integer value) {
         tree[lastIndex] = value;
-        int index = lastIndex ++; //najpierw przypisze lastIndex a następnie zwiększy LastIndex
+        int index = lastIndex++; //najpierw przypisze lastIndex a następnie zwiększy LastIndex
         while (index > 0 && tree[getParentIndex(index)] < tree[index]) {
-                tree[index] = tree[getParentIndex(index)];
-                tree[getParentIndex(index)] = value;
-                index = getParentIndex(index);
+            tree[index] = tree[getParentIndex(index)];
+            tree[getParentIndex(index)] = value;
+            index = getParentIndex(index);
         }
+    }
+
+    public int remove() {
+        int root;
+        if (tree[0] != null) {
+            root = tree[0];
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
+        if (lastIndex > 0) {
+            tree[0] = tree[--lastIndex];
+            tree[lastIndex] = null;
+
+            int index = 0;
+            while (isLeftChild(index)) {
+                int biggerChildIndex = getLeftChildIndex(index);
+
+                if (isRightChild(index)) {
+                    if (getLeftChild(index) < getRightChild(index)) {
+                        biggerChildIndex = getRightChildIndex(index);
+                    }
+                }
+                if (tree[index] < tree[biggerChildIndex]) {
+                    int current = tree[index];
+                    tree[index] = tree[biggerChildIndex];
+                    tree[biggerChildIndex] = current;
+                }
+                index = biggerChildIndex;
+            }
+//            while (index < (lastIndex - 1) / 2 && getLeftChild(index) < tree[0] && getRightChild(index) < tree[index]){
+//                if (getLeftChild(index) > getRightChild(index)){
+//                    int current = tree[index];
+//                    tree[index]= getLeftChild(index);
+//                    tree[getLeftChildIndex(index)] = current;
+//                } else {
+//                    int current = tree[index];
+//                    tree[index]= getRightChild(index);
+//                    tree[getRightChildIndex(index)] = current;
+//                }
+//            }
+        } else {
+            tree[0] = null;
+        }
+
+        return root;
     }
 
     Integer getLeftChild(int index) {
