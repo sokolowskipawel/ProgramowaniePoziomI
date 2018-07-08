@@ -24,11 +24,10 @@ public class Heap {
 
     public int remove() {
         int root;
-        if (tree[0] != null) {
-            root = tree[0];
-        } else {
+        if (tree[0] == null) {
             throw new IndexOutOfBoundsException();
         }
+        root = tree[0];
         if (lastIndex > 0) {
             tree[0] = tree[--lastIndex];
             tree[lastIndex] = null;
@@ -49,17 +48,6 @@ public class Heap {
                 }
                 index = biggerChildIndex;
             }
-//            while (index < (lastIndex - 1) / 2 && getLeftChild(index) < tree[0] && getRightChild(index) < tree[index]){
-//                if (getLeftChild(index) > getRightChild(index)){
-//                    int current = tree[index];
-//                    tree[index]= getLeftChild(index);
-//                    tree[getLeftChildIndex(index)] = current;
-//                } else {
-//                    int current = tree[index];
-//                    tree[index]= getRightChild(index);
-//                    tree[getRightChildIndex(index)] = current;
-//                }
-//            }
         } else {
             tree[0] = null;
         }
