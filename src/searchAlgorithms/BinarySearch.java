@@ -24,8 +24,7 @@ public class BinarySearch {
             } else {
                 return binarySearch(array, toSearch, pivot + 1, right);
             }
-        } else {
-            return Optional.empty();    //gdy nie znaleziono elementu
         }
+        return Optional.empty();    //gdy nie znaleziono elementu
     }
 }
