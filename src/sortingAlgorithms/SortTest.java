@@ -11,9 +11,9 @@ public class SortTest {
      //   bubbleSort.sort();
     //    tab = bubbleSort.sort();
 
-        HeapSort heapSort = new HeapSort();
+       // HeapSort. heapSort = new HeapSort();
 
-        int[] sorted = heapSort.sort(tab);
+        int[] sorted = HeapSort.sort(tab);
 
         System.out.println(Arrays.toString(Arrays.copyOfRange(sorted, 0, sorted.length)));
     }
